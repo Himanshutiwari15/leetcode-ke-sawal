@@ -1,18 +1,18 @@
 package Array;
 
 public class CheckArraySorted {
-    public static void main(String[] args) {
-        int[] arr = {2, 1, 5, 89, 398};
-        boolean flag = false;
-        for (int i = 1; i < arr.length; i++) {
-            if(arr[i] > arr[i-1]){
-                flag = true;
+
+        public boolean check(int[] arr) {
+            if (arr.length <= 1) {
+                return true; // An empty array or a single-element array is considered sorted
             }
-            else {
-                flag = false;
-                break;
+
+            for (int i = 1; i < arr.length; i++) {
+                if (arr[i] <= arr[i - 1]) {
+                    return false; // If the current element is not greater than the previous one, return false
+                }
             }
+            return true; // If no issues were found, the array is strictly increasing
         }
-        System.out.println(flag);
-    }
+
 }
